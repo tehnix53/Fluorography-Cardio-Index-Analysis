@@ -51,7 +51,7 @@ for numbers in range(0, end_pat):
 for root, dirs, files in os.walk(dir3):
     for file in files:
         for element in diag_list_norm:
-            if file.startswith(element) and file.endswith(".dcm"):
+            if file.startswith(element[2:10]) and file.endswith(".dcm"):
 
                 shutil.copy(os.path.join(root, file), dir5)
                 print(os.path.join(root, file))
@@ -61,7 +61,7 @@ for root, dirs, files in os.walk(dir3):
 for root,dirs,files in os.walk(dir3):
     for file in files:
         for element in diag_list_pat:
-            if file.startswith(element) and file.endswith(".dcm"):
+            if file.startswith(element[2:10]) and file.endswith(".dcm"):
 
                 shutil.copy(os.path.join(root, file), dir2)
                 print(os.path.join(root, file))
@@ -74,7 +74,7 @@ for root,dirs,files in os.walk(dir3):
 
 folder1 = '/home/alex/fluro/norm_raw'
 folder2 = '/home/alex/fluro/norm'
-folder3 = '/home/alex/fluro/source_raw'
+folder3 = '/home/alex/fluro/pat_raw'
 folder4 = '/home/alex/fluro/pat'
 
 shutil.copytree(folder1,folder2)
